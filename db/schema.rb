@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161015094333) do
+ActiveRecord::Schema.define(version: 20161015122755) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,8 +53,9 @@ ActiveRecord::Schema.define(version: 20161015094333) do
     t.boolean  "charity"
     t.boolean  "gift"
     t.boolean  "travel"
-    t.integer  "birthday_id"
-    t.index ["birthday_id"], name: "index_users_on_birthday_id", using: :btree
+    t.datetime "birthday"
+    t.float    "latitude"
+    t.float    "longitude"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
