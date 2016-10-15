@@ -1,7 +1,16 @@
+<div class="main-banner" style="background-image: linear-gradient(-225deg, rgba(10, 10, 10, 0.4) 0%, rgba(10, 10, 10, 0.4) 50%), url(<%= asset_path 'main.jpg' %>);">
+
+<div class="fluid-container">
+  <div class="row">
+    <div class="col-xs-4 col-xs-offset-4">
+      <%= simple_form_for @birthday do |f| %>
+        <%= f.input :birthdate, start_year: Date.today.year - 110, end_year: Date.today.year %>
+        <%= f.input :birthtime %>
+        <%= f.button :submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
 <h1>home</h1>
 
-<%= simple_form_for @birthday do |f| %>
-  <%= f.input :birthdate, start_year: Date.today.year - 110, end_year: Date.today.year %>
-  <%= f.input :birthtime %>
-  <%= f.button :submit %>
-<% end %>

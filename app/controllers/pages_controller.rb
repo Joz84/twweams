@@ -6,7 +6,6 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-
     @users = User.where.not(latitude: nil, longitude: nil) #AJOUTER CRITERE DE BIRTHDAY
 
     @hash = Gmaps4rails.build_markers(@users) do |user, marker|
