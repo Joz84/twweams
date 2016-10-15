@@ -53,10 +53,10 @@ ActiveRecord::Schema.define(version: 20161015122755) do
     t.boolean  "charity"
     t.boolean  "gift"
     t.boolean  "travel"
-    t.date     "birthday"
-    t.time     "birthtime"
+    t.integer  "birthday_id"
     t.float    "latitude"
     t.float    "longitude"
+    t.index ["birthday_id"], name: "index_users_on_birthday_id", using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
