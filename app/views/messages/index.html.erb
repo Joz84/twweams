@@ -1,0 +1,27 @@
+<h1>Messages index</h1>
+
+<div class="fluid-container">
+  <div class="row">
+    <div class="col-xs-12">
+      <%= simple_form_for @message, url: connection_messages_path(@connection), method: :post do |f| %>
+        <%= f.input :content %>
+        <%= f.button :submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<ul>
+<% @messages.each do |message| %>
+  <li>
+    <h1><%= message.user.full_name %></h1>
+    <div><%= message.content %></div>
+    <% if message.user == current_user %>
+      <%= link_to "delete", message, method: :delete %>
+    <% end %>
+  </li>
+<% end %>
+</ul>
+
+
+
