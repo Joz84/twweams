@@ -10,6 +10,7 @@ class AddColumnsToUsers < ActiveRecord::Migration[5.0]
     add_column :users, :charity, :boolean
     add_column :users, :gift, :boolean
     add_column :users, :travel, :boolean
-    add_reference :users, :birthday, index: true
+    add_column :users, :birthday, :datetime
+    #add_reference :users, :birthday, index: true
   end
 end

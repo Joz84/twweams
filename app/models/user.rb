@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-  belongs_to :birthday
   has_many :posts
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -13,7 +12,6 @@ class User < ApplicationRecord
   validates :city, presence: true
   validates :country, presence: true
   validates :birthday, presence: true
-  # validates :birthtime, presence: true
   #
   geocoded_by :full_address
   after_validation :geocode, if: :full_address_changed?
