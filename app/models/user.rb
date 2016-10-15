@@ -14,10 +14,18 @@ class User < ApplicationRecord
   # validates :birthday, presence: true
   # validates :birthtime, presence: true
   #
-  geocoded_by :address
-  after_validation :geocode, if: :address_changed?
+  geocoded_by :full_address
+  after_validation :geocode, if: :full_address_changed?
 
   def full_name
     "#{first_name} #{last_name}"
+  end
+
+  def full_address
+    "#{address}, #{zip_code} #{city} #{ISO3166::Country[country].name}"
+  end
+
+  def full_address_changed?
+    address_changed? || zip_code_changed? || city_changed? || country_changed?
   end
 end
