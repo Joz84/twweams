@@ -1,7 +1,26 @@
 <h1>Posts index</h1>
 
+<div class="fluid-container">
+  <div class="row">
+    <div class="col-xs-12">
+      <%= simple_form_for @post do |f| %>
+        <%= f.input :content %>
+        <%= f.button :submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<ul>
 <% @posts.each do |post| %>
-  <%= post.user.full_name %>
-  <%= post.content
+  <li>
+    <h1><%= post.user.full_name %></h1>
+    <div><%= post.content %></div>
+    <% if post.user == current_user %>
+      <%= link_to "delete", post, method: :delete %>
+    <% end %>
+  </li>
 <% end %>
+</ul>
+
 
