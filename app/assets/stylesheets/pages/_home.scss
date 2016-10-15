@@ -78,3 +78,11 @@
   text-align: center;
   width: 500px;
 }
+
+.content {
+  display: flex;
+  flex-direction: row;
+  p {
+    padding-right: 50px;
+  }
+}
