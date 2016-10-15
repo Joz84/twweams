@@ -1,2 +1,7 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>home</h1>
+
+<%= simple_form_for @birthday do |f| %>
+  <%= f.input :birthdate, start_year: Date.today.year - 110, end_year: Date.today.year %>
+  <%= f.input :birthtime %>
+  <%= f.button :submit %>
+<% end %>
