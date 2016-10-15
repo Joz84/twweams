@@ -1,29 +1,74 @@
-<h2>Sign up</h2>
+<div class="second-banner" style="background-image: linear-gradient(-225deg, rgba(10, 10, 10, 0.4) 0%, rgba(10, 10, 10, 0.4) 50%), url(<%= asset_path 'main.jpg' %>);">
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :first_name %>
-    <%= f.input :last_name %>
-    <%= f.input :address %>
-    <%= f.input :complement %>
-    <%= f.input :zip_code %>
-    <%= f.input :city %>
-    <%= f.input :country %>
-    <%= f.input :birthday, selected: DateTime.parse(session[:birthday]) %>
-    <%= f.input :email, required: true, autofocus: true %>
-    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-    <%= f.input :password_confirmation, required: true %>
-  </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= f.error_notification %>
 
-<%= render "devise/shared/links" %>
+    <div class="form-inputs">
+
+      <div class="vh">
+        <div class="background-white">
+          <h4>Your address</h4>
+          <hr>
+          <%= f.input :first_name, autofocus: true %>
+          <%= f.input :last_name %>
+          <%= f.input :birthday, start_year: Date.today.year - 110, end_year: Date.today.year, label: "Day of birth" %>
+        </div>
+        <br>
+        <br>
+        <div class="arrow">
+          <%= link_to '#1' do %>
+            <i class="fa fa-angle-double-down fa-5x brand-color" aria-hidden="true"></i>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="vh" id="1">
+        <div class="background-white">
+          <h4>Your position on earth</h4>
+          <hr>
+          <%= f.input :city %>
+          <%= f.input :country %>
+        </div>
+        <br>
+        <br>
+        <div class="arrow">
+          <%= link_to '#2' do %>
+            <i class="fa fa-angle-double-down fa-5x brand-color" aria-hidden="true"></i>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="vh" id="2">
+        <div class="background-white">
+          <h4>Set your password</h4>
+          <hr>
+          <%= f.input :email, required: true %>
+          <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+          <%= f.input :password_confirmation, required: true %>
+          <div class="form-actions">
+            <%= f.button :submit, "Sign up" %>
+          </div>
+        </div>
+        <br>
+        <br>
+        <div class="arrow">
+          <%= link_to '#' do %>
+            <i class="fa fa-angle-double-down fa-5x brand-color" aria-hidden="true"></i>
+          <% end %>
+        </div>
+      </div>
+
+
+
+    </div>
+
+
+  <% end %>
+</div>
 
 <%= content_for(:after_js) do %>
   <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyAO-v94CXGbYsJbMzdmsMCpfxuDD7vlcyY"></script>
 <% end %>
+</div>
