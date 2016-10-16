@@ -5,24 +5,19 @@
   <div class="row">
     <div class="col-xs-2">
       <div class="text-center">
-        <div class="row">
+        <div class="photo-padded">
           <% if current_user.photo %>
             <%= cl_image_tag current_user.photo.path, class: "avatar-large" %>
           <% end %>
         </div>
-        <div class="row">
-        <%= current_user.full_name %>
+        <div class="full-name">
+        <%= current_user.full_name.upcase %>
         </div>
-        <div class="row">
+        <div class="birthday">
         <%= current_user.birthday  %>
         </div>
-        <div class="row">
-        <%= link_to "BnB friendly", root_path, class: "btn btn-success" %>
-        </div>
-        <div class="row">
-        <%= link_to "Give back", root_path, class: "btn btn-success" %>
-        </div>
-        <div class="row">
+        <%= link_to "BnB friendly", root_path, class: "btn btn-success btn-custom" %>
+        <%= link_to "Give back", root_path, class: "btn btn-success btn-custom" %>
           <div class="share-links">
              <a href="#" class="share-link bg-facebook">
                <i class="fa fa-facebook"></i>
@@ -37,7 +32,6 @@
                <i class="fa fa-mobile"></i>
              </a>
            </div>
-        </div>
       </div>
     </div>
     <div class="col-xs-10">
