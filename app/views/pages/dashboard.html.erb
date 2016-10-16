@@ -1,12 +1,12 @@
-<h1>GOOGLE MAPS</h1>
-
-<div id="map" style="width: 100%; height: 400px;"></div>
+<div id="map" style="width: 100%; height: 92vh;"></div>
 
 <% content_for(:after_js) do %>
   <script>
     $(document).ready(function() {
       var handler = Gmaps.build('Google');
-      handler.buildMap({ internal: { id: 'map' } }, function() {
+      var isDraggable = $(document).width() > 480 ? true : false;
+      handler.buildMap({ provider: { scrollwheel: false, zoomcontrol: true,
+                          draggable: isDraggable }, internal: { id: 'map' } }, function() {
         markers = handler.addMarkers(<%= raw @hash.to_json %>);
         handler.bounds.extendWith(markers);
         handler.fitMapToBounds();
