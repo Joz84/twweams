@@ -7,7 +7,10 @@ class MessagesController < ApplicationController
 
   def create
     @connection = Connection.find(params[:connection_id])
+    @connection_return = Connection.find_by(sender: @connection.receiver, receiver: @connection.sender)
     @message = Message.create(user: current_user, content: messages_params[:content], connection: @connection )
+    @message = Message.create(user: current_user, content: messages_params[:content], connection: @connection_return )
+
     redirect_to connection_messages_path([@connection])
   end
 

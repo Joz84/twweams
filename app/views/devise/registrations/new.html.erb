@@ -13,7 +13,7 @@
           <hr>
           <%= f.input :first_name, autofocus: true %>
           <%= f.input :last_name %>
-          <%= f.input :birthday, start_year: Date.today.year - 110, end_year: Date.today.year, label: "Day of birth" %>
+          <%= f.input :birthday, start_year: Date.today.year - 110, end_year: Date.today.year, selected: DateTime.parse(session[:birthday]) %>
         </div>
         <br>
         <br>
