@@ -1,2 +1,3 @@
-<h1>YO</h1>
-<%= link_to "send a new message", user_connections_path(user.id), method: :post  %>
+<h4> <%= user.first_name.capitalize + ' ' + user.last_name.upcase %> </h4>
+<p> <%= user.city.capitalize %></p>
+<%= link_to "Message #{user.first_name.capitalize}", user_connections_path(user.id), method: :post, class: "btn btn-success"  %>
