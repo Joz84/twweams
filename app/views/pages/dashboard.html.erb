@@ -14,7 +14,7 @@
         <%= current_user.full_name.upcase %>
         </div>
         <div class="birthday">
-        <%= current_user.birthday  %>
+        <%= "#{current_user.birthday.strftime("%m/%d/%Y")} #{current_user.birthday.strftime("%I:%M%p")}" %>
         </div>
         <%= link_to "BnB friendly", root_path, class: "btn btn-success btn-custom" %>
         <%= link_to "Give back", root_path, class: "btn btn-success btn-custom" %>
