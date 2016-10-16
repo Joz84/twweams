@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount Attachinary::Engine => "/attachinary"
   post 'datetime', to: "birthdays#datetime", as: "datetime"
   #post '/connections/:connection_id/messages', to: "messages#create", as: "create_message"
   devise_for :users
