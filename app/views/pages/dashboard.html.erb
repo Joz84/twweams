@@ -1,4 +1,52 @@
-<div id="map" style="width: 100%; height: 92vh;"></div>
+
+
+
+<div class="fluid-container">
+  <div class="row">
+    <div class="col-xs-2">
+      <div class="text-center">
+        <div class="row">
+          <% if current_user.photo %>
+            <%= cl_image_tag current_user.photo.path, class: "avatar-large" %>
+          <% end %>
+        </div>
+        <div class="row">
+        <%= current_user.full_name %>
+        </div>
+        <div class="row">
+        <%= current_user.birthday  %>
+        </div>
+        <div class="row">
+        <%= link_to "BnB friendly", root_path, class: "btn btn-success" %>
+        </div>
+        <div class="row">
+        <%= link_to "Give back", root_path, class: "btn btn-success" %>
+        </div>
+        <div class="row">
+          <div class="share-links">
+             <a href="#" class="share-link bg-facebook">
+               <i class="fa fa-facebook"></i>
+             </a>
+             <a href="#" class="share-link bg-twitter">
+               <i class="fa fa-twitter"></i>
+             </a>
+             <a href="#" class="share-link bg-email">
+               <i class="fa fa-envelope-o"></i>
+             </a>
+             <a href="#" class="share-link bg-text">
+               <i class="fa fa-mobile"></i>
+             </a>
+           </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-10">
+      <div id="map" style="width: 100%; height: 92vh;"></div>
+    </div>
+  </div>
+</div>
+
+
 
 <% content_for(:after_js) do %>
   <script>
