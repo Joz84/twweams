@@ -1,63 +1,10 @@
-
-
-
 <div class="fluid-container">
   <div class="row">
-    <div class="col-xs-2">
-      <div class="text-center">
-        <div class="photo-padded">
-          <% if current_user.photo %>
-            <%= cl_image_tag current_user.photo.path, class: "avatar-large" %>
-          <% end %>
-        </div>
-        <div class="full-name">
-        <%= current_user.full_name.upcase %>
-        </div>
-        <div class="birthday">
-        <%= "#{current_user.birthday.strftime("%m/%d/%Y")} #{current_user.birthday.strftime("%I:%M%p")}" %>
-        </div>
-        <%= link_to "BnB friendly", root_path, class: "btn btn-success btn-custom" %>
-        <%= link_to "Give back", root_path, class: "btn btn-success btn-custom" %>
-          <div class="share-links">
-             <a href="#" class="share-link bg-facebook">
-               <i class="fa fa-facebook"></i>
-             </a>
-             <a href="#" class="share-link bg-twitter">
-               <i class="fa fa-twitter"></i>
-             </a>
-             <a href="#" class="share-link bg-email">
-               <i class="fa fa-envelope-o"></i>
-             </a>
-             <a href="#" class="share-link bg-text">
-               <i class="fa fa-mobile"></i>
-             </a>
-           </div>
+    <% @users.each do |user| %>
+      <div class="col-xs-4">
+        <%= user.first_name %>
       </div>
-    </div>
-    <div class="col-xs-10">
-      <div id="map" style="width: 100%; height: 92vh;"></div>
-    </div>
+    <% end %>
   </div>
 </div>
 
-
-
-<% content_for(:after_js) do %>
-  <script>
-    $(document).ready(function() {
-      var handler = Gmaps.build('Google');
-      var isDraggable = $(document).width() > 480 ? true : false;
-      handler.buildMap({ provider: { scrollwheel: false, zoomcontrol: true,
-                          draggable: isDraggable }, internal: { id: 'map' } }, function() {
-        markers = handler.addMarkers(<%= raw @hash.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-        if (markers.length == 0) {
-          handler.getMap().setZoom(2);
-        } else if (markers.length == 1) {
-          handler.getMap().setZoom(8);
-        }
-      });
-    });
-  </script>
-<% end %>

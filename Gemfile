@@ -16,7 +16,7 @@ gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
-gem 'cloudinary'
+gem 'cloudinary', "1.1.0"
 gem 'attachinary', github: 'assembler/attachinary'
 gem "jquery-fileupload-rails"
 
