@@ -5,47 +5,37 @@ class PagesController < ApplicationController
     year = datetime_params["birthdate(1i)"].to_i
     month = datetime_params["birthdate(2i)"].to_i
     day = datetime_params["birthdate(3i)"].to_i
-    # hour = datetime_params["birthtime(4i)"].to_i
-    # minute = datetime_params["birthtime(5i)"].to_i
     session[:birthday] = DateTime.new(year, month, day, 0, 0, 0, "+00:00")
+    session[:length] = 20000
     redirect_to new_user_registration_path
   end
 
   def home
   end
 
-  def first_selection
-    session[:selection] = []
-    session[:selection][:birthday] = current_user.birthday
-    session[:selection][:max_length] = 20000
-  end
-
   def selection
-    year = datetime_params["birthdate(1i)"].to_i
-    month = datetime_params["birthdate(2i)"].to_i
-    day = datetime_params["birthdate(3i)"].to_i
-    session[:selection][:birthday] = DateTime.new(year, month, day, 0, 0, 0, "+00:00")
-    session[:selection][:max_length] = datetime_params["birthdate(1i)"].to_i
+    year = selection_params["birthdate(1i)"].to_i
+    month = selection_params["birthdate(2i)"].to_i
+    day = selection_params["birthdate(3i)"].to_i
+    session[:birthday] = DateTime.new(year, month, day, 0, 0, 0, "+00:00")
+    session[:length] = selection_params[:max_length].to_i
+    redirect_to root_path
   end
 
   def dashboard
-    year = datetime_params["birthdate(1i)"].to_i
-    month = datetime_params["birthdate(2i)"].to_i
-    day = datetime_params["birthdate(3i)"].to_i
-    @users = User.where(birthday: current_user.birthday)
-    # year = current_user.birthday.year
-    # month = current_user.birthday.month
-    # day = current_user.birthday.day
-    # date_min = DateTime.new(year, month, day)
-    # date_max = DateTime.new(year, month, day + 1)
-    # all_users = User.where.not(latitude: nil, longitude: nil) #AJOUTER CRITERE DE BIRTHDAY
-    # @users = all_users.select { |user| user.birthday >= date_min && user.birthday <= date_max }
+    @birthday = DateTime.parse(session[:birthday])
+    @length = session[:length]
+    @users = User.where(birthday: @birthday)
   end
 
   private
 
   def datetime_params
-    params.require(:birthday).permit(:birthdate)#, :birthtime)
+    params.require(:birthday).permit(:birthdate)
+  end
+
+  def selection_params
+    params.require(:selection).permit(:birthdate, :length, :gender)
   end
 
   def poubelle
