@@ -42,6 +42,10 @@ class PagesController < ApplicationController
     # @users = all_users.select { |user| user.birthday >= date_min && user.birthday <= date_max }
   end
 
+  def show
+    @user = User.find(params[:id])
+  end
+
   private
 
   def datetime_params
