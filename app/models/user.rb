@@ -16,11 +16,14 @@ class User < ApplicationRecord
   validates :city, presence: true
   validates :country, presence: true
   validates :birthday, presence: true
+
   geocoded_by :user_city
   after_validation :geocode, if: :user_city_changed?
 
   def full_name
-    "#{first_name} #{last_name}"
+    a = first_name.capitalize
+    b = last_name.upcase
+    "#{a} #{b}"
   end
 
   def user_city

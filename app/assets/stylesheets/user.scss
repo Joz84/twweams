@@ -1,0 +1,66 @@
+hr {
+  margin: 5px;
+}
+
+.banner {
+  height: 130px;
+  background: white;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.profile-picture {
+  height: 25vh;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -30%;
+}
+
+.banner-name {
+  background: $gray-lighter;
+  height: 15vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.banner-description {
+  padding: 10px 20px;
+  height: 28vh;
+}
+
+.name {
+  font-size: 30px;
+  font-family: $header-font;
+  font-weight: 300;
+}
+
+.age {
+  font-size: 15px;
+  font-family: $base-font;
+  font-weight: 600;
+}
+
+.title {
+  font-family: $header-font;
+  font-size: 16px;
+  font-weight: 600;
+  padding-top: 10px;
+}
+
+.text {
+  font-family: $base-font;
+  font-size: 15px;
+  font-weight: 300;
+  color: $gray-dark;
+  font-style: italic;
+}
+
+#one {
+  background: #E8E1DB;
+}
+
+#two {
+  background: #F6EFE0;
+}
