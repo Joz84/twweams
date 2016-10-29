@@ -14,15 +14,24 @@ hr {
   height: 25vh;
   border-radius: 50%;
   position: absolute;
-  bottom: -30%;
+  bottom: -40%;
+}
+
+#arrow {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  color: $gray-light;
+  &:hover {
+    color: black;
+  }
 }
 
 .banner-name {
   background: $gray-lighter;
-  height: 15vh;
+  height: 25vh;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
 }
 
 .banner-description {
@@ -31,15 +40,20 @@ hr {
 }
 
 .name {
-  font-size: 30px;
+  font-size: 35px;
   font-family: $header-font;
   font-weight: 300;
+  position: absolute;
+  bottom: 15px;
 }
 
-.age {
-  font-size: 15px;
+.city {
+  font-size: 14px;
   font-family: $base-font;
-  font-weight: 600;
+  font-weight: 700;
+  position: absolute;
+  bottom: 10px;
+  margin: 0;
 }
 
 .title {

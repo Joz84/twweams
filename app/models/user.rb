@@ -26,6 +26,10 @@ class User < ApplicationRecord
     "#{a} #{b}"
   end
 
+  def location
+    "#{city}, #{country}"
+  end
+
   def user_city
     "#{city} #{ISO3166::Country[country].name}"
   end
