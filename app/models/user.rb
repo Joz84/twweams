@@ -22,8 +22,8 @@ class User < ApplicationRecord
 
   def full_name
     a = first_name.capitalize
-    b = last_name.upcase
-    "#{a} #{b}"
+    b = last_name[0].upcase
+    "#{a} #{b}."
   end
 
   def location

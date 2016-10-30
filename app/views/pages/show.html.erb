@@ -2,10 +2,10 @@
   <div class="row">
     <div class="col-xs-12">
       <div class="banner">
-        <%= link_to root_path do %>
+<!--         <%= link_to root_path do %>
           <i class="fa fa-arrow-circle-o-left fa-3x" aria-hidden="true" id="arrow"></i>
-        <% end %>
-        <%= image_tag 'logo_twweams', class: 'profile-picture' %>
+        <% end %> -->
+        <%= image_tag 'logo', class: 'profile-picture' %>
       </div>
       <div class="banner-name">
         <p class='name'><%= @user.full_name %> </p>
@@ -19,18 +19,18 @@
       <div class="banner-description">
         <p class='title'> About <%= @user.first_name %> </p>
         <p><%= @user.bio %></p>
-        <p class='text'> "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quisquam enim omnis ducimus tempore molestiae ullam exercitationem repellat vero, voluptas. Earum qui nam mollitia officiis? Corporis quasi quis labore dolor." </p>
+        <p class='text'> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quisquam enim omnis ducimus tempore molestiae ullam exercitationem repellat vero, voluptas. Earum qui nam mollitia officiis? Corporis quasi quis labore dolor. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur qui</p>
       </div>
     </div>
 
     <div class="col-md-6 col-xs-12" id="two">
       <div class="banner-description">
         <p class='title'> Preferences </p>
-        <p class='text'> Movie </p>
+        <p class='text'> Favorite Movie: <%= @user.movie %> </p>
         <hr>
-        <p class='text'> Music </p>
+        <p class='text'> Favorite Music: <%= @user.music %> </p>
         <hr>
-        <p class='text'> Book </p>
+        <p class='text'> Favorite Book: <%= @user.book %> </p>
       </div>
     </div>
   </div>
@@ -41,7 +41,7 @@
             $(document).ready(function() {
               var handler = Gmaps.build('Google');
               var isDraggable = $(document).width() > 480 ? true : false;
-              handler.buildMap({ provider: { scrollwheel: false, zoomcontrol: true,
+              handler.buildMap({ provider: { scrollwheel: true, zoomcontrol: true,
                                   draggable: isDraggable }, internal: { id: 'map' } }, function() {
                 markers = handler.addMarkers(<%= raw @hash.to_json %>);
                 handler.bounds.extendWith(markers);
