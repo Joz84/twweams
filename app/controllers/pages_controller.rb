@@ -2,11 +2,8 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home, :birthday ]
 
   def birthday
-    year = datetime_params["birthdate(1i)"].to_i
-    month = datetime_params["birthdate(2i)"].to_i
-    day = datetime_params["birthdate(3i)"].to_i
-    session[:birthday] = DateTime.new(year, month, day, 0, 0, 0, "+00:00")
-    session[:length] = 20000
+    session[:birthday] = User.birthdate(datetime_params)
+    session[:length] = 100
     redirect_to new_user_registration_path
   end
 
@@ -14,12 +11,8 @@ class PagesController < ApplicationController
   end
 
   def selection
-    raise
-    year = selection_params["birthdate(1i)"].to_i
-    month = selection_params["birthdate(2i)"].to_i
-    day = selection_params["birthdate(3i)"].to_i
-    session[:birthday] = DateTime.new(year, month, day, 0, 0, 0, "+00:00")
-    session[:length] = selection_params[:max_length].to_i
+    session[:birthday] = User.birthdate(selection_params)
+    session[:length] = params[:length].to_i
     redirect_to root_path
   end
 
