@@ -1,0 +1,53 @@
+
+<div class="wrapper-selection">
+  <div class="container">
+    <div class="row">
+
+
+      <%= simple_form_for :selection, url: selection_path, method: :get do |f| %>
+        <div class="col-xs-12 col-sm-1">
+          <%= image_tag "https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/14680500_205994083145453_9003107790063366657_n.png?oh=d94d4c4ac7dff51934d2bf174dfa82a6&oe=58A6727C", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <div class="navbar-item-logo"><%= link_to "TWWEAMS", root_path  %></div>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+          <%= f.input :birthdate, as: :date, start_year: Date.today.year - 110, end_year: Date.today.year, label: "Enter your birthday" %>
+        </div>
+        <div class="col-xs-12 col-sm-3">
+          <input class="ps7" type="range" name="length" style="width:100%;margin-bottom:10px;">
+        </div>
+        <div class="col-xs-6 col-sm-2">
+          <%= f.collection_radio_buttons :male, [[true, 'Male'] ,[false, 'Female']], :first, :last ,style: "display:inline", default: true %>
+
+        </div>
+        <div class="col-xs-12 col-sm-1">
+          <%= f.button :submit, 'Find!', class: "btn btn-success" %>
+        </div>
+        <div class="col-xs-12 col-sm-1">
+          <% if user_signed_in? %>
+
+            <!-- Profile picture and dropdown -->
+            <div class="navbar-wagon-item">
+              <div class="dropdown">
+                <i class="fa fa-sign-out  white" data-toggle="dropdown"></i>
+                <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+                  <li>
+                    <%= link_to destroy_user_session_path, method: :delete do %>
+                      <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+                    <% end %>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+          <% else %>
+
+            <!-- Login text link -->
+            <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+

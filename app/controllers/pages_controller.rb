@@ -14,6 +14,7 @@ class PagesController < ApplicationController
   end
 
   def selection
+    raise
     year = selection_params["birthdate(1i)"].to_i
     month = selection_params["birthdate(2i)"].to_i
     day = selection_params["birthdate(3i)"].to_i

@@ -1,12 +1,6 @@
-<div>
-  <div class="form-one">
-    <%= simple_form_for :selection, url: selection_path, method: :get do |f| %>
-      <%= f.input :birthdate, as: :date, start_year: Date.today.year - 110, end_year: Date.today.year, label: "Enter your birthday" %>
-      <%= f.input :length, as: :integer %>
-      <%= f.button :submit, 'Find your mates!', class: "btn btn-success" %>
-    <% end %>
-  </div>
-</div>
+<%= render "shared/selection" %>
+
+
 
 
 <div class="fluid-container">
