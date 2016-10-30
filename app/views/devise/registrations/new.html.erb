@@ -1,25 +1,44 @@
 <div class="second-banner" style="background-image: linear-gradient(-225deg, rgba(10, 10, 10, 0.4) 0%, rgba(10, 10, 10, 0.4) 50%), url(<%= asset_path 'main.jpg' %>);">
 
-  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= f.error_notification %>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3 col-xs-12">
 
-    <div class="form-inputs">
+        <div class="form-sign-up">
+          <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= f.error_notification %>
+            <div class="row">
+              <div class="col-xs-6">
+                <%= f.input :first_name, autofocus: true %>
+              </div>
+              <div class="col-xs-6">
+                <%= f.input :last_name %>
+              </div>
+            </div>
+            <%= f.input :birthday, start_year: Date.today.year - 110, end_year: Date.today.year, selected: DateTime.parse(session[:birthday]), as: :hidden %>
+            <div class="row">
+              <div class="col-xs-8">
+                <%= f.input :city %>
+              </div>
+              <div class="col-xs-4">
+                <%= f.input :country %>
+              </div>
+            </div>
+            <%= f.input :gender %>
+            <%= f.input :email, required: true %>
+            <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+            <%= f.input :password_confirmation, required: true %>
+            <div class="form-actions">
+              <%= f.button :submit, "Sign up", style: 'width: 100%;' %>
+            </div>
+          <% end %>
+        </div>
 
-      <%= f.input :first_name, autofocus: true %>
-      <%= f.input :last_name %>
-      <%= f.input :birthday, start_year: Date.today.year - 110, end_year: Date.today.year, selected: DateTime.parse(session[:birthday]) %>
-      <%= f.input :city %>
-      <%= f.input :country %>
-      <%= f.input :email, required: true %>
-      <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-      <%= f.input :password_confirmation, required: true %>
-      <div class="form-actions">
-        <%= f.button :submit, "Sign up" %>
+
       </div>
-
     </div>
+  </div>
 
-  <% end %>
 </div>
 
 <%= content_for(:after_js) do %>
