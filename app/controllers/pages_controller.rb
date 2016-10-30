@@ -17,8 +17,9 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @birthday = DateTime.parse(session[:birthday])
-    @length = session[:length]
+    #@birthday = DateTime.parse(session[:birthday])
+    @birthday = current_user.birthday
+    @length = session[:length] ? session[:length] : 100
     @users = User.where(birthday: @birthday)
   end
 
