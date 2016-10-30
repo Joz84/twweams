@@ -40,9 +40,9 @@ class User < ApplicationRecord
   end
 
   def self.birthdate(params)
-    year = datetime_params["birthdate(1i)"].to_i
-    month = datetime_params["birthdate(2i)"].to_i
-    day = datetime_params["birthdate(3i)"].to_i
+    year = params["birthdate(1i)"].to_i
+    month = params["birthdate(2i)"].to_i
+    day = params["birthdate(3i)"].to_i
     DateTime.new(year, month, day, 0, 0, 0, "+00:00")
   end
 end

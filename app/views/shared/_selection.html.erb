@@ -10,13 +10,13 @@
           <div class="navbar-item-logo"><%= link_to "TWWEAMS", root_path  %></div>
         </div>
         <div class="col-xs-12 col-sm-4">
-          <%= f.input :birthdate, as: :date, start_year: Date.today.year - 110, end_year: Date.today.year, label: "Enter your birthday" %>
+          <%= f.input :birthdate, as: :date, start_year: Date.today.year - 110, end_year: Date.today.year, label: "Enter your birthday", selected: @birthday %>
         </div>
         <div class="col-xs-12 col-sm-3">
-          <input class="ps7" type="range" name="length" style="width:100%;margin-bottom:10px;">
+          <input class="ps7" value=<%= @length %> type="range" name="length" style="width:100%;margin-bottom:10px;">
         </div>
         <div class="col-xs-6 col-sm-2">
-          <%= f.collection_radio_buttons :male, [[true, 'Male'] ,[false, 'Female']], :first, :last ,style: "display:inline", default: true %>
+          <%= f.collection_radio_buttons :gender, [[true, 'Male'] ,[false, 'Female']], :first, :last ,style: "display:inline", default: true %>
 
         </div>
         <div class="col-xs-12 col-sm-1">

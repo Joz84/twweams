@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 
   def birthday
     session[:birthday] = User.birthdate(datetime_params)
-    session[:length] = 20000
+    session[:length] = 100
     redirect_to new_user_registration_path
   end
 
@@ -12,7 +12,7 @@ class PagesController < ApplicationController
 
   def selection
     session[:birthday] = User.birthdate(selection_params)
-    session[:length] = selection_params[:max_length].to_i
+    session[:length] = params[:length].to_i
     redirect_to root_path
   end
 

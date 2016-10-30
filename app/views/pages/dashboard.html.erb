@@ -1,15 +1,17 @@
 <%= render "shared/selection" %>
 
-
-
-
 <div class="fluid-container">
-  <div class="row">
-    <% @users.each do |user| %>
-      <div class="col-xs-4">
-        <%= user.first_name %>
-      </div>
+    <div class="row">
+    <% @users.each_with_index do |user, index| %>
+      <% if (index+1)%5 == 0 %>
+        </div>
+        <div class="row">
+      <% end %>
+        <div class="col-xs-12 col-sm-3">
+          <%= render partial: "shared/card", locals: { user: user } %>
+        </div>
     <% end %>
-  </div>
+    </div>
 </div>
+
 
