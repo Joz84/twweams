@@ -1,0 +1,80 @@
+hr {
+  margin: 5px;
+}
+
+.banner {
+  height: 130px;
+  background: white;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.profile-picture {
+  height: 25vh;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -45%;
+}
+
+#arrow {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  color: $gray-light;
+  &:hover {
+    color: black;
+  }
+}
+
+.banner-name {
+  background: $gray-lighter;
+  height: 25vh;
+  display: flex;
+  justify-content: center;
+}
+
+.banner-description {
+  padding: 10px 20px;
+  height: 28vh;
+}
+
+.name {
+  font-size: 35px;
+  font-family: $header-font;
+  font-weight: 300;
+  position: absolute;
+  bottom: 20px;
+}
+
+.city {
+  font-size: 14px;
+  font-family: $base-font;
+  font-weight: 700;
+  position: absolute;
+  bottom: 10px;
+  margin: 0;
+}
+
+.title {
+  font-family: $header-font;
+  font-size: 16px;
+  font-weight: 600;
+  padding-top: 10px;
+}
+
+.text {
+  font-family: $base-font;
+  font-size: 15px;
+  font-weight: 300;
+  color: $gray-dark;
+  font-style: italic;
+}
+
+#one {
+  background: #E8E1DB;
+}
+
+#two {
+  background: #F6EFE0;
+}

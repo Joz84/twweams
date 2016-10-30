@@ -30,13 +30,6 @@ ActiveRecord::Schema.define(version: 20161015215506) do
     t.index ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent", using: :btree
   end
 
-  create_table "birthdays", force: :cascade do |t|
-    t.date     "birthdate"
-    t.time     "birthtime"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "connections", force: :cascade do |t|
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
