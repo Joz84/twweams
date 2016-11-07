@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 20161015215506) do
     t.string   "last_name"
     t.string   "city"
     t.string   "country"
-    t.boolean  "gender"
+    t.integer  "gender"
     t.text     "bio"
     t.string   "book"
     t.string   "music"

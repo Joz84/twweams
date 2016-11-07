@@ -1,11 +1,11 @@
 <div class="wrapper-selection">
   <div class="container">
     <div class="row">
-      <div class="col-sm-3 col-xs-12">
+      <div class="col-sm-4 col-xs-12">
         <%= simple_form_for :selection, url: selection_path, method: :get do |f| %>
         <%= f.input :birthdate, as: :date, start_year: Date.today.year - 110, end_year: Date.today.year, label: false, selected: @birthday %>
         </div>
-        <div class="col-sm-6 col-xs-12">
+        <div class="col-sm-5 col-xs-12">
           <div class="space-between">
             <div id="km-1"><p>0 km</p></div>
             <input class="ps7" value=<%= @length %> type="range" name="length" style="width:100%;margin-bottom:10px;background: none;">
@@ -14,7 +14,8 @@
         </div>
         <div class="col-sm-2 col-xs-8">
         <div class="space-between">
-          <%= f.collection_radio_buttons :gender, [[true, 'Male'] ,[false, 'Female']], :first, :last,style: "font-style:light;", default: true %>
+          <%= f.input :male, as: :boolean, class: "button-green" %>
+          <%= f.input :female, as: :boolean, class: "button-green" %>
           </div>
         </div>
         <div class="col-sm-1 col-xs-4">
@@ -24,6 +25,5 @@
         </div>
       </div>
     </div>
-
 </div>
 
