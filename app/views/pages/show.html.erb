@@ -10,6 +10,7 @@
       <div class="banner-name">
         <p class='name'><%= @user.full_name %> </p>
         <p class='city'><%= @user.location %> </p>
+        <p class="send-message"><%= link_to "Send message",user_connections_path(@user), method: :post, class: "button-find" %></p>
       </div>
     </div>
   </div>

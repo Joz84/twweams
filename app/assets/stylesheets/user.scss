@@ -29,7 +29,7 @@ hr {
 
 .banner-name {
   background: $gray-lighter;
-  height: 25vh;
+  height: 28vh;
   display: flex;
   justify-content: center;
 }
@@ -65,13 +65,19 @@ hr {
   font-family: $header-font;
   font-weight: 300;
   position: absolute;
-  bottom: 20px;
+  bottom: 55px;
 }
 
 .city {
   font-size: 14px;
   font-family: $base-font;
   font-weight: 700;
+  position: absolute;
+  bottom: 50px;
+  margin: 0;
+}
+
+.send-message {
   position: absolute;
   bottom: 10px;
   margin: 0;

@@ -1,6 +1,5 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home, :birthday ]
-  # after_action :hash_position, only: [ :show, :edit]
 
   def birthday
     session[:birthday] = User.birthdate(datetime_params)
@@ -51,14 +50,6 @@ class PagesController < ApplicationController
   end
 
   private
-
-  def hash_position
-    @hash = Gmaps4rails.build_markers(@user) do |user, marker|
-      marker.lat user.latitude
-      marker.lng user.longitude
-      # marker.infowindow render_to_string(partial: "/pages/map_box", locals: { user: user })
-    end
-  end
 
   def datetime_params
     params.require(:birthday).permit(:birthdate)
