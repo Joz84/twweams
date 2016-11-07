@@ -18,14 +18,15 @@
     <div class="col-md-6 col-xs-12" id="one">
       <div class="banner-description">
         <p class='title'> About <%= @user.first_name %> </p>
-          <p class='text'><%= @user.bio %></p>
+          <%= render partial: "shared/favorite", locals: { favorite: :bio }  %>
       </div>
     </div>
+
     <div class="col-md-6 col-xs-12" id="two">
       <div class="banner-description">
         <p class='title'> Preferences </p>
         <% [:movie, :music, :book].each do |favorite| %>
-          <p class='text'><%= "Favorite #{favorite}: #{@user[favorite]}" %></p>
+          <%= render partial: "shared/favorite", locals: { favorite: favorite }  %>
           <hr>
         <% end %>
       </div>

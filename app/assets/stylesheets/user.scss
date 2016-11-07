@@ -39,6 +39,27 @@ hr {
   height: 28vh;
 }
 
+.banner-edit {
+  padding: 10px 20px;
+  height: 50vh;
+}
+
+.banner-position {
+  padding: 10px 20px;
+  height: 15vh;
+}
+
+.banner-button {
+  padding: 0px 20px;
+  height: 10vh;
+}
+
+.wrapper-position {
+  background: #E8E1DB;
+  height: 100vh;
+  height: 25vh;
+}
+
 .name {
   font-size: 35px;
   font-family: $header-font;
@@ -77,4 +98,17 @@ hr {
 
 #two {
   background: #F6EFE0;
+}
+
+#position {
+  background: #E8E1DB;
+}
+
+.display-none {
+  visibility: hidden;
+  height: 0px;
+}
+
+.button-green {
+  background: #71C9C7;
 }

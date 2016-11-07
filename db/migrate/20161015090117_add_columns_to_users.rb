@@ -7,7 +7,7 @@ class AddColumnsToUsers < ActiveRecord::Migration[5.0]
     #add_column :users, :zip_code, :string
     add_column :users, :city, :string
     add_column :users, :country, :string
-    add_column :users, :gender, :boolean
+    add_column :users, :gender, :integer
     add_column :users, :bio, :text
     add_column :users, :book, :string
     add_column :users, :music, :string

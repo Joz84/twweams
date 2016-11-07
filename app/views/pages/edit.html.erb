@@ -1,0 +1,80 @@
+<div class="fluid-container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="banner">
+        <%= image_tag 'logo', class: 'profile-picture' %>
+      </div>
+      <div class="banner-name">
+        <p class='name'><%= @user.full_name %> </p>
+        <p class='city'><%= @user.location %> </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= simple_form_for @user, url: update_path(@user), method: :patch do |f| %>
+  <div class="fluid-container">
+    <div class="row">
+      <div class="col-md-6 col-xs-12" id="one">
+        <div class="banner-edit">
+          <p class='title'> About <%= @user.first_name %> </p>
+            <%= f.input :bio, label: "Biography", :input_html => {rows: 9.3} %>
+        </div>
+      </div>
+      <div class="col-md-6 col-xs-12" id="two">
+        <div class="banner-edit">
+          <p class='title'> Preferences </p>
+          <% [:movie, :music, :book].each do |favorite| %>
+              <%= f.input favorite %>
+            <hr>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="wrapper-position">
+    <div class="fluid-container">
+      <div class="row">
+        <div class="col-md-8 col-xs-12" id="position">
+          <div class="banner-position">
+            <%= f.input :city  %>
+          </div>
+        </div>
+        <div class="col-md-4 col-xs-12" id="position">
+          <div class="banner-position">
+            <%= f.input :country  %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-md-2 col-md-offset-5" id="position">
+          <div class="banner-button">
+            <div><%= f.button :submit, 'Save', class: "button-find", style: "width: 100%;" %></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<div class="fluid-container">
+  <div id="map" style="width: 100%; height: 30vh;">
+    <% content_for(:after_js) do %>
+      <script>
+        $(document).ready(function() {
+          var handler = Gmaps.build('Google');
+          var isDraggable = $(document).width() > 480 ? true : false;
+          handler.buildMap({ provider: { scrollwheel: true, zoomcontrol: true,
+                              draggable: isDraggable }, internal: { id: 'map' } }, function() {
+            markers = handler.addMarkers(<%= raw @hash.to_json %>);
+            handler.bounds.extendWith(markers);
+            handler.fitMapToBounds();
+            handler.getMap().setZoom(11);
+          });
+        });
+      </script>
+      <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyAO-v94CXGbYsJbMzdmsMCpfxuDD7vlcyY"></script>
+    <% end %>
+  </div>
+</div>
+
