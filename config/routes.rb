@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   mount Attachinary::Engine => "/attachinary"
   # post 'datetime', to: "birthdays#datetime", as: "datetime"
+  patch 'picture/:id', to: "users#picture", as: "picture"
+  put 'picture/:id', to: "users#picture"
   get 'birthday', to: "pages#birthday", as: "birthday"
   get 'show/:id', to: 'pages#show', as: "show"
   get 'profile', to: 'pages#edit', as: "profile"
