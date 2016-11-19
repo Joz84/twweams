@@ -2,18 +2,24 @@
   <div class="row">
     <div class="navbar-wagon">
       <div class="navbar-wagon-left">
-      <%= cl_image_tag("logo_jnrmwq.png", class: 'avatar') %>
-        <div class="navbar-item-logo"><%= link_to "TWWEAMS", root_path  %></div>
+        <%= link_to root_path, class: "no-decoration" do %>
+          <div class="navbar-item">
+            <%= cl_image_tag("logo_jnrmwq.png", class: 'avatar') %>
+            TWWEAMS
+          </div>
+        <% end %>
       </div>
       <!-- Right Navigation -->
-      <div class="navbar-wagon-item  hidden-xs hidden-sm">
-        TCHAT
+      <div class="hidden-xs hidden-sm">
+        <%= link_to posts_path, class: "no-decoration" do %>
+          <div class="navbar-item">POSTS</div>
+        <% end %>
       </div>
       <div class="navbar-wagon-right">
         <% if user_signed_in? %>
-          <div class="navbar-wagon-item">
+          <div class="navbar-item">
             <div class="dropdown">
-              <i class="fa fa-bars  white" data-toggle="dropdown"></i>
+              <i class="fa fa-bars" data-toggle="dropdown"></i>
               <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
                 <li>
                   <%= link_to profile_path do %>
@@ -35,16 +41,16 @@
           </div>
         <% else %>
           <!-- Login text link -->
-          <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+          <%= link_to new_user_session_path, class: "no-decoration" do %>
+            <div class="navbar-item">LOGIN</div>
+          <% end %>
         <% end %>
       </div>
     </div>
-    <div class="row hidden-md hidden-lg">
-      <div class="navbar-wagon">
-        <div style="font-size: 15px; color: white; width: 100%; text-align: center;">
-          TCHAT
-        </div>
-      </div>
+    <div class="row hidden-md hidden-lg navbar-wagon">
+      <%= link_to posts_path, class: "no-decoration" do %>
+        <div class="navbar-item">POSTS</div>
+      <% end %>
     </div>
   </div>
 </div>
