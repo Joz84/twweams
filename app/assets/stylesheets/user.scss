@@ -11,7 +11,10 @@ hr {
 }
 
 .profile-picture {
+  border: none !important;
   height: 25vh;
+  width: 25vh;
+  background-size: 100%;
   border-radius: 50%;
   position: absolute;
   bottom: -45%;

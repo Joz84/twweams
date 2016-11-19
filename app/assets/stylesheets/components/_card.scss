@@ -16,24 +16,18 @@ body {
 }
 
 .card-top {
-  background: #B2DCE5;
-  padding: 3em;
+  // background: #71C9C7;
+  background-size: 100% !important;
+  height: 263px;
   border-top-left-radius: 0.75em;
   border-top-right-radius: 0.75em;
-}
-.card-top .card-img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  height: 12em;
-  width: auto;
 }
 .card-top .overlay {
   display: block;
   position: absolute;
   top: 0;
   left: 0;
-  height: 17.75em;
+  height: 259px;
   width: 100%;
   border-top-left-radius: 0.75em;
   border-top-right-radius: 0.75em;
@@ -63,7 +57,7 @@ body {
   width: 0;
   border-left: 1.5em solid transparent;
   border-right: 1.5em solid transparent;
-  border-top: 1.5em solid #B2DCE5;
+  border-top: 1.5em solid #71C9C7;
   margin: 0 auto -1.75em auto;
   top: -.25em;
   z-index: 20;

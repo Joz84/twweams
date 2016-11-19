@@ -2,7 +2,8 @@
   <div class="row">
     <div class="col-xs-12">
       <div class="banner">
-        <%= image_tag 'logo', class: 'profile-picture' %>
+        <!-- Button trigger modal -->
+<button type="button" class="profile-picture" style="background-image: url('<%= @user.photo ? cl_image_path(@user.photo.path) : cl_image_path("logo_jnrmwq.png") %>');" data-toggle="modal" data-target="#myModal"></button>
       </div>
       <div class="banner-name">
         <p class='name'><%= @user.full_name %> </p>
@@ -73,8 +74,33 @@
           });
         });
       </script>
-      <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyAO-v94CXGbYsJbMzdmsMCpfxuDD7vlcyY"></script>
     <% end %>
   </div>
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body">
+              <%= simple_form_for @user, method: :patch, url: picture_path(current_user) do |f| %>
+                <%= f.input :photo, as: :attachinary %>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <%= f.button :submit, "change your photo", class: "btn btn-primary" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
