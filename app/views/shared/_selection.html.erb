@@ -5,10 +5,10 @@
         <%= simple_form_for :selection, url: selection_path, method: :get do |f| %>
         <%= f.input :birthdate, as: :date, start_year: Date.today.year - 110, end_year: Date.today.year, label: false, selected: @birthday %>
         </div>
-        <div class="col-sm-5 col-xs-12">
+        <div class="col-sm-4 col-xs-12">
           <div class="space-between">
             <div id="km-1"><p>0 km</p></div>
-            <input class="ps7" value=<%= @length %> type="range" name="length" style="width:100%;margin-bottom:10px;background: none;">
+            <input class="ps7" value=<%= @length %> type="range" name="length" style="">
             <div id="km-2"><p>20000 km</p></div>
           </div>
         </div>
@@ -18,7 +18,7 @@
           <%= f.input :female, as: :boolean, class: "margin-zero" %>
           </div>
         </div>
-        <div class="col-sm-1 col-xs-4">
+        <div class="col-sm-2 col-xs-4">
           <%= f.button :submit, 'Find', class: "button-find" %>
         </div>
           <% end %>

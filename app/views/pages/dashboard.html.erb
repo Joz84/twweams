@@ -5,7 +5,7 @@
     <% @users.each_with_index do |user, index| %>
       <% if (index+1)%5 == 0 %>
         </div>
-        <div class="row">
+        <div class="row margin-15">
       <% end %>
         <div class="col-xs-12 col-sm-3">
           <%= render partial: "shared/card", locals: { user: user } %>
