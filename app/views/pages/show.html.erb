@@ -1,17 +1,17 @@
-<div class="fluid-container">
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="banner">
-        <%= @user.photo ? cl_image_tag(@user.photo.path, class: 'profile-picture') : cl_image_tag("logo_jnrmwq.png", class: 'profile-picture') %>
-      </div>
-      <div class="banner-name">
-        <p class='name'><%= @user.full_name %> </p>
-        <p class='city'><%= @user.location %> </p>
-        <p class="send-message"><%= link_to "Send message",user_connections_path(@user), method: :post, class: "button-find" %></p>
-      </div>
-    </div>
-  </div>
 
+<div class="banner">
+  <%= @user.photo ? cl_image_tag(@user.photo.path, class: 'profile-picture') : cl_image_tag("logo_kzbkd7.png", class: 'profile-picture') %>
+</div>
+
+<div class="banner-name">
+  <div class="banner-content">
+    <h1><%= @user.full_name %> </h1>
+    <p><%= @user.location %> </p>
+    <p><%= link_to "Send message",user_connections_path(@user), method: :post, class: "button-find" %></p>
+  </div>
+</div>
+
+<div class="container-fluid">
   <div class="row">
     <div class="col-md-6 col-xs-12" id="one">
       <div class="banner-description">
@@ -29,22 +29,21 @@
       </div>
     </div>
   </div>
-
-  <div id="map" style="width: 100%; height: 30vh;">
-    <% content_for(:after_js) do %>
-      <script>
-        $(document).ready(function() {
-          var handler = Gmaps.build('Google');
-          var isDraggable = $(document).width() > 480 ? true : false;
-          handler.buildMap({ provider: { scrollwheel: true, zoomcontrol: true,
-                              draggable: isDraggable }, internal: { id: 'map' } }, function() {
-            markers = handler.addMarkers(<%= raw @hash.to_json %>);
-            handler.bounds.extendWith(markers);
-            handler.fitMapToBounds();
-            handler.getMap().setZoom(11);
-          });
+</div>
+<div id="map" style="width: 100%; height: 30vh;">
+  <% content_for(:after_js) do %>
+    <script>
+      $(document).ready(function() {
+        var handler = Gmaps.build('Google');
+        var isDraggable = $(document).width() > 480 ? true : false;
+        handler.buildMap({ provider: { scrollwheel: true, zoomcontrol: true,
+                            draggable: isDraggable }, internal: { id: 'map' } }, function() {
+          markers = handler.addMarkers(<%= raw @hash.to_json %>);
+          handler.bounds.extendWith(markers);
+          handler.fitMapToBounds();
+          handler.getMap().setZoom(11);
         });
-      </script>
-    <% end %>
-  </div>
+      });
+    </script>
+  <% end %>
 </div>
