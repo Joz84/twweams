@@ -19,6 +19,7 @@ class User < ApplicationRecord
   validates :country, presence: true
   validates :birthday, presence: true
   validates :gender, presence: true
+  validates :bio, length: { maximum: 600 }
 
   geocoded_by :user_city
   after_validation :geocode, if: :user_city_changed?

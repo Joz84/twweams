@@ -18,16 +18,17 @@ body {
 .card-top {
   // background: #71C9C7;
   background-size: cover !important;
-  height: 263px;
+  height: 204px;
   border-top-left-radius: 0.75em;
   border-top-right-radius: 0.75em;
+  position: relative;
 }
 .card-top .overlay {
   display: block;
   position: absolute;
   top: 0;
   left: 0;
-  height: 259px;
+  height: 204px;
   width: 100%;
   border-top-left-radius: 0.75em;
   border-top-right-radius: 0.75em;
@@ -59,7 +60,7 @@ body {
   border-right: 1.5em solid transparent;
   border-top: 1.5em solid #71C9C7;
   margin: 0 auto -1.75em auto;
-  top: -.25em;
+  // top: -.25em;
   z-index: 20;
 }
 
@@ -85,10 +86,10 @@ body {
 
 .circle-button {
   position: absolute;
-  bottom: 0;
-  right: 3.5em;
-  width: 70px;
-  height: 70px;
+  bottom: -20px;
+  left: -20px;
+  width: 40px;
+  height: 40px;
   font-size: 1.5em;
   color: #fff;
   background: #fff;
@@ -99,6 +100,7 @@ body {
   cursor: pointer;
   -webkit-transition: all 300ms ease;
   transition: all 300ms ease;
+  z-index: 11;
 }
 .circle-button .close {
   -webkit-transition: -webkit-transform 400ms ease;

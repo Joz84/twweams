@@ -1,6 +1,8 @@
 
 <div class="banner">
-  <%= @user.photo ? cl_image_tag(@user.photo.path, class: 'profile-picture') : cl_image_tag("logo_kzbkd7.png", class: 'profile-picture') %>
+  <div class="profile-picture">
+    <%= @user.photo ? cl_image_tag(@user.photo.path, class: 'coco') : cl_image_tag("logo_kzbkd7.png", class: 'coco') %>
+  </div>
 </div>
 
 <div class="banner-name">
