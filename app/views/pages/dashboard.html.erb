@@ -1,17 +1,46 @@
 <%= render "shared/selection" %>
 
-<div class="container">
-    <div class="row">
-    <% @users.each_with_index do |user, index| %>
-      <% if (index+1)%5 == 0 %>
-        </div>
-        <div class="row margin-15">
-      <% end %>
-        <div class="col-xs-12 col-sm-3">
-          <%= render partial: "shared/card", locals: { user: user } %>
-        </div>
-    <% end %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-md-7">
+    <div class="index-dashboard">
+      <div class="container-fluid">
+          <div class="row">
+            <% @users.each_with_index do |user, index| %>
+              <% if (index+1)%4 == 0 %>
+                </div>
+                <div class="row margin-15">
+              <% end %>
+                <div class="col-xs-12 col-md-4">
+                  <%= render partial: "shared/card", locals: { user: user } %>
+                </div>
+            <% end %>
+          </div>
+      </div>
     </div>
+    </div>
+    <div class="col-md-5">
+      <div id="map" class="map-dashboard"></div>
+    </div>
+  </div>
 </div>
 
-
+<% content_for(:after_js) do %>
+  <script>
+    $(document).ready(function() {
+      var handler = Gmaps.build('Google');
+      var isDraggable = $(document).width() > 480 ? true : false;
+      handler.buildMap({ provider: { scrollwheel: false, zoomcontrol: true,
+                          draggable: isDraggable }, internal: { id: 'map' } }, function() {
+        markers = handler.addMarkers(<%= raw @hash.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        if (markers.length == 0) {
+          handler.getMap().setZoom(2);
+        } else if (markers.length == 1) {
+          handler.getMap().setZoom(8);
+        }
+      });
+    });
+  </script>
+<% end %>

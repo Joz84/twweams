@@ -12,13 +12,18 @@ hr {
 
 .profile-picture {
   border: none !important;
-  height: 25vh;
+  height: 130%;
   width: 25vh;
-  background-size: 100%;
+  background-size: cover;
   border-radius: 50%;
   position: absolute;
   bottom: -45%;
   z-index: 1;
+  overflow: hidden;
+}
+
+.coco {
+  width: 100%;
 }
 
 #arrow {

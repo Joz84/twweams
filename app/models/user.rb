@@ -19,6 +19,7 @@ class User < ApplicationRecord
   validates :country, presence: true
   validates :birthday, presence: true
   validates :gender, presence: true
+  validates :bio, length: { maximum: 600 }
 
   geocoded_by :user_city
   after_validation :geocode, if: :user_city_changed?
@@ -27,6 +28,10 @@ class User < ApplicationRecord
     a = first_name.capitalize
     b = last_name[0].upcase
     "#{a} #{b}."
+  end
+
+  def summary
+    bio ? "#{bio[0..100]} ..." : "No comment"
   end
 
   def selected_users(birthday, male, female, length)
