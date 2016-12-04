@@ -29,6 +29,10 @@ class User < ApplicationRecord
     "#{a} #{b}."
   end
 
+  def summary
+    bio ? "#{bio[0..100]} ..." : "No comment"
+  end
+
   def selected_users(birthday, male, female, length)
     if (male + female)%2 == 0
       users = User.where(birthday: birthday).near(self.location, length*200)

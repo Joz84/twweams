@@ -21,6 +21,12 @@ class PagesController < ApplicationController
     @birthday = session[:birthday] ? DateTime.parse(session[:birthday]) : current_user.birthday
     @length = session[:length] ? session[:length] : 100
     @users = current_user.selected_users(@birthday, session[:male].to_i, session[:female].to_i, @length)
+
+    @hash = Gmaps4rails.build_markers(@users) do |user, marker|
+      marker.lat user.latitude
+      marker.lng user.longitude
+      marker.infowindow render_to_string(partial: "/pages/map_box", locals: { user: user })
+    end
   end
 
   def show
