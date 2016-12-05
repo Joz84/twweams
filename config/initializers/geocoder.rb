@@ -10,7 +10,7 @@ Geocoder.configure(
   # cache: nil,                 # cache object (must respond to #[], #[]=, and #keys)
   # cache_prefix: 'geocoder:',  # prefix (string) to use for all cache keys
   :lookup    => :google,
-  :api_key   => ENV['GOOGLE_API_SERVER_KEY'],
+  :api_key   => ENV['GOOGLE_API_KEY'],
   :use_https => true,
 
   # Exceptions that should not be rescued by default

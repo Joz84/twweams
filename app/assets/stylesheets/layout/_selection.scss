@@ -1,13 +1,17 @@
 .wrapper-selection {
-  background: grey;
+  background: $gray-darker;
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.6);
   padding: 10px 0;
+  // height: 9vh;
+  color: white;
 }
 
 .space-between {
   display: flex;
   justify-content: space-between;
   margin: 10px 0;
+  margin-bottom: 0px !important;
+  margin-top: 0px !important;
 }
 
 #km-1 {
@@ -22,6 +26,7 @@
 
 .button-find {
   text-decoration: none;
+  width: 100%;
   padding: 10px 30px;
   background: $brand-color;
   color: white;
@@ -122,4 +127,15 @@ input[type=range]:focus::-ms-fill-lower {
 }
 input[type=range]:focus::-ms-fill-upper {
   background: $brand-color;
+}
+
+.form-group {
+  margin-bottom: 0px !important;
+}
+
+.ps7 {
+  width:100% !important;
+  margin-top:20px !important;
+  margin-bottom:20px !important;
+  background: none !important;
 }

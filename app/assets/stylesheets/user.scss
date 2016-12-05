@@ -11,10 +11,19 @@ hr {
 }
 
 .profile-picture {
-  height: 25vh;
+  border: none !important;
+  height: 130%;
+  width: 25vh;
+  background-size: cover;
   border-radius: 50%;
   position: absolute;
   bottom: -45%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.coco {
+  width: 100%;
 }
 
 #arrow {
@@ -29,9 +38,30 @@ hr {
 
 .banner-name {
   background: $gray-lighter;
-  height: 25vh;
+  height: 28vh;
+  text-align: center;
   display: flex;
+  align-items: center;
   justify-content: center;
+}
+
+.banner-name h1 {
+  font-size: 35px;
+  font-family: $header-font;
+  font-weight: 300;
+  margin-top: 70px;
+  // position: absolute;
+  // bottom: 55px;
+}
+
+.banner-name p {
+  font-size: 14px;
+  font-family: $base-font;
+  font-weight: 700;
+  margin-bottom: 20px;
+  // position: absolute;
+  // bottom: 50px;
+  // margin: 0;
 }
 
 .banner-description {
@@ -60,18 +90,7 @@ hr {
   height: 25vh;
 }
 
-.name {
-  font-size: 35px;
-  font-family: $header-font;
-  font-weight: 300;
-  position: absolute;
-  bottom: 20px;
-}
-
-.city {
-  font-size: 14px;
-  font-family: $base-font;
-  font-weight: 700;
+.send-message {
   position: absolute;
   bottom: 10px;
   margin: 0;

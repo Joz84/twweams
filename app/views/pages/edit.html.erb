@@ -1,19 +1,17 @@
-<div class="fluid-container">
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="banner">
-        <%= image_tag 'logo', class: 'profile-picture' %>
-      </div>
-      <div class="banner-name">
-        <p class='name'><%= @user.full_name %> </p>
-        <p class='city'><%= @user.location %> </p>
-      </div>
-    </div>
+
+<div class="banner">
+  <!-- Button trigger modal -->
+  <button type="button" class="profile-picture" style="background-image: url('<%= @user.photo ? cl_image_path(@user.photo.path) : cl_image_path("logo_kzbkd7.png") %>');" data-toggle="modal" data-target="#myModal"></button>
+</div>
+<div class="banner-name">
+  <div class="banner-content">
+    <h1><%= @user.full_name %> </h1>
+    <p><%= @user.location %> </p>
   </div>
 </div>
 
 <%= simple_form_for @user, url: update_path(@user), method: :patch do |f| %>
-  <div class="fluid-container">
+  <div class="container-fluid">
     <div class="row">
       <div class="col-md-6 col-xs-12" id="one">
         <div class="banner-edit">
@@ -33,7 +31,7 @@
     </div>
   </div>
   <div class="wrapper-position">
-    <div class="fluid-container">
+    <div class="container-fluid">
       <div class="row">
         <div class="col-md-8 col-xs-12" id="position">
           <div class="banner-position">
@@ -57,24 +55,48 @@
   </div>
 <% end %>
 
-<div class="fluid-container">
-  <div id="map" style="width: 100%; height: 30vh;">
-    <% content_for(:after_js) do %>
-      <script>
-        $(document).ready(function() {
-          var handler = Gmaps.build('Google');
-          var isDraggable = $(document).width() > 480 ? true : false;
-          handler.buildMap({ provider: { scrollwheel: true, zoomcontrol: true,
-                              draggable: isDraggable }, internal: { id: 'map' } }, function() {
-            markers = handler.addMarkers(<%= raw @hash.to_json %>);
-            handler.bounds.extendWith(markers);
-            handler.fitMapToBounds();
-            handler.getMap().setZoom(11);
-          });
+
+<div id="map" style="width: 100%; height: 30vh;">
+  <% content_for(:after_js) do %>
+    <script>
+      $(document).ready(function() {
+        var handler = Gmaps.build('Google');
+        var isDraggable = $(document).width() > 480 ? true : false;
+        handler.buildMap({ provider: { scrollwheel: true, zoomcontrol: true,
+                            draggable: isDraggable }, internal: { id: 'map' } }, function() {
+          markers = handler.addMarkers(<%= raw @hash.to_json %>);
+          handler.bounds.extendWith(markers);
+          handler.fitMapToBounds();
+          handler.getMap().setZoom(11);
         });
-      </script>
-      <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyAO-v94CXGbYsJbMzdmsMCpfxuDD7vlcyY"></script>
-    <% end %>
-  </div>
+      });
+    </script>
+  <% end %>
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body">
+              <%= simple_form_for @user, method: :patch, url: picture_path(current_user) do |f| %>
+                <%= f.input :photo, as: :attachinary %>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <%= f.button :submit, "change your photo", class: "btn btn-primary" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

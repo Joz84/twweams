@@ -4,7 +4,7 @@ body {
 
 .card {
   position: relative;
-  top: 20vh;
+  top: 10vh;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   border-radius: 0.75em;
   padding: 0;
@@ -16,24 +16,19 @@ body {
 }
 
 .card-top {
-  background: #B2DCE5;
-  padding: 3em;
+  // background: #71C9C7;
+  background-size: cover !important;
+  height: 204px;
   border-top-left-radius: 0.75em;
   border-top-right-radius: 0.75em;
-}
-.card-top .card-img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  height: 12em;
-  width: auto;
+  position: relative;
 }
 .card-top .overlay {
   display: block;
   position: absolute;
   top: 0;
   left: 0;
-  height: 17.75em;
+  height: 204px;
   width: 100%;
   border-top-left-radius: 0.75em;
   border-top-right-radius: 0.75em;
@@ -63,9 +58,9 @@ body {
   width: 0;
   border-left: 1.5em solid transparent;
   border-right: 1.5em solid transparent;
-  border-top: 1.5em solid #B2DCE5;
+  border-top: 1.5em solid #71C9C7;
   margin: 0 auto -1.75em auto;
-  top: -.25em;
+  // top: -.25em;
   z-index: 20;
 }
 
@@ -91,10 +86,10 @@ body {
 
 .circle-button {
   position: absolute;
-  bottom: 0;
-  right: 3.5em;
-  width: 70px;
-  height: 70px;
+  bottom: -20px;
+  left: -20px;
+  width: 40px;
+  height: 40px;
   font-size: 1.5em;
   color: #fff;
   background: #fff;
@@ -105,6 +100,7 @@ body {
   cursor: pointer;
   -webkit-transition: all 300ms ease;
   transition: all 300ms ease;
+  z-index: 11;
 }
 .circle-button .close {
   -webkit-transition: -webkit-transform 400ms ease;
