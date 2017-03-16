@@ -3,7 +3,7 @@
 <!-- <div class="small-7 medium-5 large-4 column end small-centered card"> -->
 <div class="card">
   <div class="card-top" style="background-image: url('<%= user.photo ? cl_image_path(user.photo.path) : cl_image_path("logo_kzbkd7.png") %>');">
-    <%= link_to show_path(user.id) do %>
+    <%= link_to user do %>
       <div class="overlay">
         <h1>Go!</h1>
       </div>
