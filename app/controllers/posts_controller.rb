@@ -1,9 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @users = User.where(birthday: current_user.birthday)
-    @posts = []
-    @users.each { |user| Post.where(user: user ).each { |post| @posts << post } }
-    @posts.reverse!
+    @posts = Post.joins(:user).where(users: { birthday: current_user.birthday }).reverse
     @post = Post.new
   end
 
