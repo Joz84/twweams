@@ -1,5 +1,5 @@
 <div style="text-align: center;">
   <h4> <%= user.first_name.capitalize + ' ' + user.last_name.upcase %> </h4>
   <p> <%= user.city.capitalize %></p>
-  <%= link_to "Go!", show_path(user.id), class: "btn btn-success"  %>
+  <%= link_to "Go!", user, class: "btn btn-success"  %>
 </div>
