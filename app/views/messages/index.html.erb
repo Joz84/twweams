@@ -3,9 +3,17 @@
   <div class="row">
     <div class="col-xs-12">
       <%= simple_form_for @message, url: connection_messages_path(@connection), method: :post do |f| %>
-        <%= f.input :content, autofocus: true, :input_html => {"data-behavior" => "chat_speaker"}  %>
+        <%= f.input :content, autofocus: true %>
         <%= f.button :submit, class: "btn btn-success" %>
       <% end %>
+
+      <!-- Web Socket input -->
+      <br>
+      <form>
+        <label>Type Something</label>
+        <input type="text" data-behavior="chat_speak">
+      </form>
+
     </div>
   </div>
 </div>
