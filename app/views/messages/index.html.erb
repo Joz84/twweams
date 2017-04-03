@@ -6,6 +6,14 @@
         <%= f.input :content, autofocus: true %>
         <%= f.button :submit, class: "btn btn-success" %>
       <% end %>
+
+      <!-- Web Socket input -->
+      <br>
+      <form>
+        <label>Type Something</label>
+        <input type="text" data-behavior="chat_speak">
+      </form>
+
     </div>
   </div>
 </div>
