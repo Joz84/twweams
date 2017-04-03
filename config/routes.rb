@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   mount Attachinary::Engine => "/attachinary"
+  mount ActionCable.server => '/cable'
 
   get 'birthday', to: "pages#birthday", as: "birthday"
   get 'selection', to: "pages#selection", as: "selection"

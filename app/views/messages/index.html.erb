@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-xs-12">
       <%= simple_form_for @message, url: connection_messages_path(@connection), method: :post do |f| %>
-        <%= f.input :content, autofocus: true %>
+        <%= f.input :content, autofocus: true, :input_html => {"data-behavior" => "chat_speaker"}  %>
         <%= f.button :submit, class: "btn btn-success" %>
       <% end %>
     </div>
