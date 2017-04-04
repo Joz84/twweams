@@ -1,10 +1,25 @@
-<div class="main-banner" style="background-image: linear-gradient(-225deg, rgba(10, 10, 10, 0.4) 0%, rgba(10, 10, 10, 0.4) 50%), url(<%= asset_path 'main.jpg' %>);">
+<div class="home-banner" style="background-image: linear-gradient(-225deg, rgba(50, 183, 150, 1.00) 0%, rgba(50, 183, 150, 1.00) 50%), url(<%= asset_path 'main.jpg' %>);">
 
-    <div class="form-one", style="text-align: center; color: white;">
-      <h3>Enter your birthday</h3>
-      <%= simple_form_for :birthday, url: birthday_path, method: :get, html: { class: 'form-inline' } do |f| %>
-        <%= f.input :birthdate, as: :date, start_year: Date.today.year - 110, end_year: Date.today.year, label: false %>
-        <%= f.button :submit, 'Go!', class: "btn btn-success" %>
-      <% end %>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-offset-6 col-md-6">
+
+        <div class="home-form-container">
+          <div class="home-form">
+
+            <h3>Enter your birthday</h3>
+            <%= simple_form_for :birthday, url: birthday_path, method: :get do |f| %>
+              <%= f.input :birthdate, as: :date, start_year: Date.today.year - 110, end_year: Date.today.year, label: false %>
+              <%= f.button :submit, 'Go!', style: "width: 100%;" %>
+            <% end %>
+
+            </div>
+        </div>
+
+      </div>
     </div>
+  </div>
+
 </div>
+
+<!-- style="text-align: center; color: white;" -->
