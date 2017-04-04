@@ -1,6 +1,17 @@
 .footer-container {
   padding: 50px;
-  background: white;
-  display: flex;
-  justify-content: center;
+  // background: white;
+  // display: flex;
+  // justify-content: center;
+}
+
+.flag {
+  width: 25px;
+  margin: 5px;
+  opacity: 0.6;
+  text-decoration: none;
+}
+
+.flag.active {
+  opacity: 1;
 }

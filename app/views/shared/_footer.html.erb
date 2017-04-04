@@ -1,3 +1,19 @@
 <div class="footer-container">
-  Hello world
+  <%= link_to url_for locale: nil do %>
+    <%= image_tag('flags/fr.png', class: 'flag', id: 'fr') %>
+  <% end %>
+  <%= link_to url_for locale: :en do %>
+    <%= image_tag('flags/en.png', class: 'flag', id: 'en') %>
+  <% end %>
 </div>
+
+<script>
+  const locale = "<%= I18n.locale %>";
+  const flag = document.querySelector(`img#${locale}`);
+
+  function highlightFlag() {
+    flag.classList.add('active')
+  };
+
+  window.addEventListener('load', highlightFlag);
+</script>
