@@ -19,6 +19,9 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
+fr:
+  date:
+    formats:
+      default: "%Y-%m-%d"
   home:
-    tagline: "Enter your birthdate to sign-up and find your twins !"
+    tagline: "Entrer votre date d'anniversaire pour vous connecter et trouver vos jumeaux !"
