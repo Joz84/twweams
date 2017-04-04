@@ -1,3 +1,8 @@
 <div class="footer-container">
-  Hello world
+  <%= link_to url_for locale: nil do %>
+    <%= image_tag('flags/fr.png', class: 'flag') %>
+  <% end %>
+  <%= link_to url_for locale: :en do %>
+    <%= image_tag('flags/en.png', class: 'flag') %>
+  <% end %>
 </div>
