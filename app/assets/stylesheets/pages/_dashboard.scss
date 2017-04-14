@@ -55,3 +55,48 @@ padding-left: 15px;
 height: 84vh;
 margin-top: 3px;
 }
+
+// New user cards
+.user-card {
+  background: white;
+  position: relative;
+  box-shadow: 1px 1px 20px rgba(10, 10, 10, 0.4);
+  border-radius: 4px;
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 10px solid black;
+  margin: 10px;
+}
+
+.user-card-photo{
+  width: 200px;
+  height: 200px;
+  background-size: cover !important;
+  background-position: center;
+  margin: 10px;
+  border: 1px solid rgba(10, 10, 10, 0.1);
+  &:hover {
+    // content: "coco"
+  }
+}
+
+.user-toggle-button {
+  width: 30px;
+  height: 30px;
+  background: red;
+  position: absolute;
+  bottom: -1em;
+}
+
+.user-content {
+  border-top: 1px solid black;
+  padding: 10px;
+}
+
+.rotate-45deg {
+  transform: rotate(45deg);
+  transition: all 0.5s
+}
