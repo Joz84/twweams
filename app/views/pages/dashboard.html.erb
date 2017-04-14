@@ -25,20 +25,12 @@
   </div>
 </div>
 
-<div class="user-card">
-  <div style="background-image: url(<%= asset_path('logo.png')%>);" class="user-card-photo" ></div>
-  <h4> Jean BON </h4>
-  <p> Bayonne </p>
-  <div class="user-toggle-button"></div>
-  <div class="user-content">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa ratione doloribus alias error ut quia eveniet, nostrum vel facere amet beatae suscipit dicta, iste expedita, possimus aliquam laudantium blanditiis minima.
-  </div>
-</div>
-
 <!-- CARD DESIGN -->
 
 <div class="user-card">
-  <div style="background-image: url(<%= asset_path('logo.png')%>);" class="user-card-photo" ></div>
+  <%= link_to root_path do %>
+    <div style="background-image: url(<%= asset_path('logo.png')%>);" class="user-card-photo" ></div>
+  <% end %>
   <h4> Jean BON </h4>
   <p> Bayonne </p>
   <div class="user-toggle-button"></div>
@@ -46,6 +38,42 @@
     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa ratione doloribus alias error ut quia eveniet, nostrum vel facere amet beatae suscipit dicta, iste expedita, possimus aliquam laudantium blanditiis minima.
   </div>
 </div>
+
+<div class="user-card">
+  <%= link_to root_path do %>
+    <div style="background-image: url(<%= asset_path('logo.png')%>);" class="user-card-photo" ></div>
+  <% end %>
+  <h4> Jean BON </h4>
+  <p> Bayonne </p>
+  <div class="user-toggle-button"></div>
+  <div class="user-content">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa ratione doloribus alias error ut quia eveniet, nostrum vel facere amet beatae suscipit dicta, iste expedita, possimus aliquam laudantium blanditiis minima.
+  </div>
+</div>
+
+<script>
+// 1. Selectors
+const cards = document.querySelectorAll('div.user-card');
+
+
+// 2. Functions
+function toggleContent() {
+  console.log(this)
+};
+
+// function toggleRotate(element) {
+//   console.log(element.classList.includes("user-card"))
+// }
+
+
+// 3. Event Listeners
+cards.forEach(card => card.addEventListener('click', toggleContent));
+
+</script>
+
+
+
+
 
 <% content_for(:after_js) do %>
   <script>
