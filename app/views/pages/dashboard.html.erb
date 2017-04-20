@@ -59,12 +59,33 @@ const cards = document.querySelectorAll('div.user-card');
 // 2. Functions
 function toggleContent() {
   console.log(this)
+  const button = this.querySelector('div.user-toggle-button');
+  toggleRotate(button)
 };
 
-// function toggleRotate(element) {
-//   console.log(element.classList.includes("user-card"))
-// }
+function toggleRotate(el) {
+  if (el.classList.contains("rotate45deg")) {
+    el.classList.add("backto0deg");
+    window.setTimeout(clearClasses, 500);
+    // el.addEventListener('transitionend', clear)
+  } else {
+    el.classList.add("rotate45deg")
+  };
 
+  // function clear(e) {
+  //   if (e.propertyName !== 'transform') return;
+  //   console.log('removing...')
+  //   e.target.classList.remove('rotate45deg');
+  //   e.target.classList.remove('backto0deg');
+  // };
+
+  clearClasses = function() {
+    el.classList.remove("rotate45deg");
+    el.classList.remove("backto0deg");
+  };
+};
+
+function toggle(div) {}
 
 // 3. Event Listeners
 cards.forEach(card => card.addEventListener('click', toggleContent));
