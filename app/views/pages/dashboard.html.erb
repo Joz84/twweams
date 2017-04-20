@@ -39,6 +39,8 @@
   </div>
 </div>
 
+<div class="test1 test2 test3"></div>
+
 <div class="user-card">
   <%= link_to root_path do %>
     <div style="background-image: url(<%= asset_path('logo.png')%>);" class="user-card-photo" ></div>
@@ -52,51 +54,49 @@
 </div>
 
 <script>
-// 1. Selectors
-const buttons = document.querySelectorAll('div.user-toggle-button');
-const cards = document.querySelectorAll('div.user-card');
+  // 1. Selectors
+  const buttons = document.querySelectorAll('div.user-toggle-button');
+  const cards = document.querySelectorAll('div.user-card');
+
+  const test = document.querySelector('.test1');
 
 
-// 2. Functions
-function toggleActive() {
-  let parentDiv = this.parentNode;
-  let userContent = parentDiv.querySelector('div.user-content');
-  toggleRotate(this);
-  // toggleContent(userContent);
-};
-
-function toggleRotate(el) {
-  if (el.classList.contains("rotate45deg")) {
-    el.classList.add("backto0deg");
-    window.setTimeout(clearClasses, 500);
-    // el.addEventListener('transitionend', clear)
-  } else {
-    el.classList.add("rotate45deg")
+  // 2. Functions
+  function toggleActive() {
+    const parentDiv = this.parentNode;
+    const userContent = parentDiv.querySelector('div.user-content');
+    toggleRotate(this);
+    toggleHeigth(userContent);
   };
 
-  // function clear(e) {
-  //   if (e.propertyName !== 'transform') return;
-  //   console.log('removing...')
-  //   e.target.classList.remove('rotate45deg');
-  //   e.target.classList.remove('backto0deg');
-  // };
+  function clearAddedClasses(div) {
+      const classes = [...div.classList];
+      const classLeft = classes.splice(0, 1);
+      div.classList = classLeft.join('');
+      // el.classList.remove("rotate45deg");
+      // el.classList.remove("backto0deg");
+    };
 
-  clearClasses = function() {
-    el.classList.remove("rotate45deg");
-    el.classList.remove("backto0deg");
+  function toggleRotate(el) {
+    if (el.classList.contains("rotate45deg")) {
+      el.classList.add("backto0deg");
+      window.setTimeout( () => clearAddedClasses(el), 500);
+    } else {
+      el.classList.add("rotate45deg")
+    };
   };
-};
 
-// function toggleContent(div) {
-//   console.log(div);
-//   // const initHeight = div.offsetHeight;
-//   $(div).slideToggle("slow");
-//   // div.classList.add('folded');
-// };
+  function toggleHeigth(el) {
+    if (el.classList.contains('unfold')) {
+      el.classList.add('backto0px');
+      window.setTimeout( () => clearAddedClasses(el) , 500);
+    } else {
+      el.classList.add('unfold');
+    };
+  };
 
-// 3. Event Listeners
-buttons.forEach(button => button.addEventListener('click', toggleActive));
-
+  // 3. Event Listeners
+  buttons.forEach(button => button.addEventListener('click', toggleActive));
 </script>
 
 
