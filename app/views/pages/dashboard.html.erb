@@ -53,14 +53,16 @@
 
 <script>
 // 1. Selectors
+const buttons = document.querySelectorAll('div.user-toggle-button');
 const cards = document.querySelectorAll('div.user-card');
 
 
 // 2. Functions
-function toggleContent() {
-  console.log(this)
-  const button = this.querySelector('div.user-toggle-button');
-  toggleRotate(button)
+function toggleActive() {
+  let parentDiv = this.parentNode;
+  let userContent = parentDiv.querySelector('div.user-content');
+  toggleRotate(this);
+  // toggleContent(userContent);
 };
 
 function toggleRotate(el) {
@@ -85,10 +87,15 @@ function toggleRotate(el) {
   };
 };
 
-function toggle(div) {}
+// function toggleContent(div) {
+//   console.log(div);
+//   // const initHeight = div.offsetHeight;
+//   $(div).slideToggle("slow");
+//   // div.classList.add('folded');
+// };
 
 // 3. Event Listeners
-cards.forEach(card => card.addEventListener('click', toggleContent));
+buttons.forEach(button => button.addEventListener('click', toggleActive));
 
 </script>
 

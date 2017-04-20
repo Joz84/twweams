@@ -71,7 +71,7 @@ margin-top: 3px;
   margin: 10px;
 }
 
-.user-card-photo{
+.user-card-photo {
   width: 200px;
   height: 200px;
   background-size: cover !important;
@@ -94,8 +94,11 @@ margin-top: 3px;
 .user-content {
   border-top: 1px solid black;
   padding: 10px;
+  overflow: hidden;
+  transition: all 0.5s;
 }
 
+// JS classes
 .rotate45deg {
   transform: rotate(45deg);
   transition: all 0.5s;
@@ -106,3 +109,7 @@ margin-top: 3px;
   transition: all 0.5s;
 }
 
+.folded {
+  height: 0;
+  transition: all 0.5s;
+}
